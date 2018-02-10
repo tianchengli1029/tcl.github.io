@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<!-- 	<a href="javascript:void(0)">dianji</a>
+ -->	<h1 style="margin:0;padding:0;height: 100px;border:1px solid red">我是文字的高度</h1>
+		<img style="display: block;margin: 0 auto" src="images/icon_shouye_shichi_que.png">
+		<button>change user</button>
+</body>
+<script type="text/javascript">
+	var body = document.querySelector('h1');
+	// body.textContent="hello,javascript";
+
+	var img = document.querySelector('img');
+	img.onclick=function(){
+	var src = img.getAttribute('src');
+		if (src ==="images/icon_shouye_shichi_que.png") {
+			img.setAttribute('src',"images/icon_shouye_tua.jpg");
+		}else{
+			img.setAttribute('src','images/icon_shouye_shichi_que.png')
+		}
+	}
+
+	var button = document.querySelector('button');
+	function setUserName(){
+		var name = prompt('please enter your name!');
+		localStorage.setItem('name',name);
+		body.textContent='localStorage=='+name;
+	}
+	button.onclick= function(){
+		setUserName();
+	}
+	if (!localStorage.getItem('name')) {
+		setUserName();
+	}else{
+		body.textContent=localStorage.getItem('name');
+	}
+</script>
+</html>
